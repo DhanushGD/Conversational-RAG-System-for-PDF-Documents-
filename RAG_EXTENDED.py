@@ -49,7 +49,6 @@ if api_key:
         st.session_state.store={}
 
     uploaded_files=st.file_uploader("Choose A PDf file",type="pdf",accept_multiple_files=True)
-    # path = r"C:\Users\thula\OneDrive\Desktop\GEN_AI\DAY - 16 CHATBOTS PROJECTS"
     path = "your directory path"
     temppdf = os.path.join(path, "temp.pdf")
     ## Process uploaded  PDF's
