@@ -2,10 +2,29 @@
 This project allows users to upload PDFs and interact with the content of the PDFs using a Conversational Retrieval-Augmented Generation (RAG) model. Users can upload multiple PDFs, ask questions related to the content, and maintain a chat history that can be referenced during conversations.
 
 ### Features
-- Upload PDF files and process their content.
-- Use a Retrieval-Augmented Generation model to answer questions about the uploaded PDFs.
-- Maintain chat history for context-based responses.
-- Choose between multiple models for answering questions.
+- **Upload PDF Files**: Upload one or more PDF files to the application.
+- **Process PDF Content**: The app extracts the text content from the uploaded PDFs and prepares it for further interaction.
+- **Data Ingestion**: The content of the PDFs is ingested and stored in memory for processing.
+- **Text Splitting (Recursive Split)**: The extracted content is split into smaller chunks using a recursive character-based splitting technique. This helps break the content into manageable chunks that can be efficiently processed by the retrieval system.
+- **HuggingFace Embeddings**: The text chunks are embedded using HuggingFace’s pre-trained embeddings model (`all-MiniLM-L6-v2`). This transforms the text into vector representations for efficient similarity search and question-answering.
+- **Store in ChromaDB**: The embedded text chunks are stored in Chroma, a vector database that allows fast and scalable retrieval of relevant information.
+- **Retrieval-Augmented Generation**: Use a Retrieval-Augmented Generation model to answer questions based on the uploaded PDFs and the stored embeddings.
+- **Maintain Chat History**: The app keeps track of chat history to allow for context-based responses, ensuring more accurate and relevant answers in ongoing conversations.
+- **Model Selection**: Choose between multiple conversational AI models (e.g., `gemma2-9b-it` or `Llama3-8b-8192`) to get answers based on the uploaded PDFs.
+
+
+### Tech Stack
+This project uses a combination of the following technologies:
+- **Python**: The core programming language for this project.
+- **Streamlit**: A framework to quickly build interactive web applications.
+- **LangChain**: A toolkit for building language model-powered applications.
+  - **LangChain Groq**: For using Groq-powered conversational AI models.
+  - **LangChain HuggingFace**: For embedding models using Hugging Face’s API.
+  - **LangChain Chroma**: For storing and retrieving text embeddings.
+- **Langsmith**: A platform for model-driven workflows, used to integrate and manage API keys and projects related to LangChain models.
+- **PyPDFLoader**: To load and process content from PDF files.
+- **Chroma**: A vector database for storing document embeddings.
+- **Groq API**: For powerful conversational AI models.
   
 ## Requirements
 Before running the application, make sure to have the following:
